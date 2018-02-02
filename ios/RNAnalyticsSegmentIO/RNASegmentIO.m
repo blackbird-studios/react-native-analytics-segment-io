@@ -89,6 +89,10 @@ RCT_EXPORT_METHOD(setup:(NSString *)key
         config.trackDeepLinks = [RCTConvert BOOL:value];
     }
 
+#ifdef SEGUrbanAirshipIntegrationFactoryImported
+    [config use:[SEGUrbanAirshipIntegrationFactory instance]];
+#endif
+
 #ifdef SEGTaplyticsIntegrationFactoryImported
     [config use:[SEGTaplyticsIntegrationFactory instance]];
 #endif
@@ -148,7 +152,7 @@ RCT_EXPORT_METHOD(setup:(NSString *)key
 #ifdef SEGAppboyIntegrationFactoryImported
     [config use:[SEGAppboyIntegrationFactory instance]];
 #endif
-    
+
 #ifdef SEGIntercomIntegrationFactoryImported
     [config use:[SEGIntercomIntegrationFactory instance]];
 #endif

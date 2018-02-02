@@ -9,6 +9,17 @@
 // <Segment_Integration_Name/SegmentIntegrationHeader.h> is used when 'use_frameworks!' is added to the Podfile (since clang module names have to be valid c99ext identifiers)
 // SegmentIntegrationHeader.h is used when files are directly added to the project (e.g. when having 'use_frameworks!' and using static libraries)
 
+#if __has_include(<Segment-UrbanAirship/SEGUrbanAirshipIntegrationFactory.h>)
+#import <Segment-UrbanAirship/SEGUrbanAirshipIntegrationFactory.h>
+#define SEGUrbanAirshipIntegrationFactoryImported
+#elif __has_include(<Segment_UrbanAirship/SEGUrbanAirshipIntegrationFactory.h>)
+#import <Segment_UrbanAirship/SEGUrbanAirshipIntegrationFactory.h>
+#define SEGUrbanAirshipIntegrationFactoryImported
+#elif __has_include("SEGUrbanAirshipIntegrationFactory.h")
+#import "SEGUrbanAirshipIntegrationFactory.h"
+#define SEGUrbanAirshipIntegrationFactoryImported
+#endif
+
 #if __has_include(<Segment-Taplytics/SEGTaplyticsIntegrationFactory.h>)
 #import <Segment-Taplytics/SEGTaplyticsIntegrationFactory.h>
 #define SEGTaplyticsIntegrationFactoryImported
